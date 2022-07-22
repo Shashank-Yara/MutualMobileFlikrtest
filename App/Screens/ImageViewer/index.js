@@ -1,20 +1,20 @@
 import React from 'react';
 import ImageTile from '../../Components/Reusable/ImageTile';
-import { Text } from "@rneui/themed";
-import { View } from 'react-native';
+import {View, Text} from 'react-native';
+import AppErrorBoundary from '../../Hoc/ErrorBoundry';
+import styles from './styles';
+import { COMMONSTYLES } from '../../Utils/Theme';
 
-export default ImageViewer = ({ route }) => {
-    const {
-        uri,
-        title,
-        caption
-    } = route?.params || {}
+export default ImageViewer = ({route}) => {
+  const {uri, title, caption} = route?.params || {};
+
   return (
+    <AppErrorBoundary>
       <View>
-          <Text h1>{title}</Text>
-          <ImageTile uri={uri}/>
-          <Text h2>{caption}</Text>
+        <Text style={[styles.title, COMMONSTYLES.fontSize24]}>{title}</Text>
+        <ImageTile uri={uri} />
+        <Text style={[styles.caption, COMMONSTYLES.fontSize16]}>{caption}</Text>
       </View>
-    
+    </AppErrorBoundary>
   );
 };

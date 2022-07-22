@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Home from '../../../Screens/Home';
-import ImageViewer from '../../../Screens/ImageViewer';
+import Home from '../Stacks/Home';
+import Settings from '../../../Screens/Settings';
 
 const Tab = createBottomTabNavigator();
 
 export default HomeTab = () => {
   return (
       <Tab.Navigator>
-        <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="ImageViewer" component={ImageViewer} />
+        <Tab.Screen name="Home" component={Home} options={{headerShown: false}}/>
+        <Tab.Screen name="Settings" component={Settings} options={{headerShown: true}}/>
       </Tab.Navigator>
   );
 }
